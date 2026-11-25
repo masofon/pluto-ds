@@ -198,7 +198,7 @@ person, then apply. They never auto-apply and never invent one.
 | `page_name` | `❖  {Name} - {symbols}` | |
 | `wip_pages` | — | Pages where unfinished work lives. None in the starter: work happens on the component's own page |
 | `page_template` | ❖ Your first component | The designer duplicates it, renames it for their component and sketches their concept in its sketch area. The copy, under the Components header, becomes the component page |
-| `protected_pages` | Cover, Read me, Foundations, Icons, Doc utilities, ❖ Your first component | Pages skills never touch, e.g. foundations or utilities |
+| `protected_pages` | Cover, Read me, Foundations, Icons, Doc utilities | Pages skills never touch, e.g. foundations or utilities |
 | `canvas_background` | `#F4F4F4` (`neutral/100`) | Page background colour, if standardised |
 | `context_card` | Context card, on the Doc utilities page. Header links to the CRD only: no tracker | A frame at the top of each component page carrying its metadata |
 | `doc_frames` | Component · Anatomy · Usage · Modes · Motion | Top-level frames on a component page, left to right. Each only where the component needs it |
