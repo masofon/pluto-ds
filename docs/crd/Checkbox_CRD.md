@@ -83,7 +83,7 @@ something before submitting ("I agree to the terms"), or select rows in tables a
 
 * B1: Clicking the box, the label or between them toggles the value.
 * B2: Clicking the link follows it and leaves the value unchanged.
-* B3: [review] On a value change, the box fill and the indicator transition in on check and out
+* B3: On a value change, the box fill and the indicator transition in on check and out
   on uncheck.
 * B4: Under reduced motion, a value change jumps straight to the end state.
 
@@ -156,6 +156,7 @@ The rule that Field and Checkbox group set S7's error state belongs in their CRD
   (token conventions § Which tier, step 1).
 * 2026-11-25: The box border uses the thinner border width: closer to the concept.
 * 2026-11-25: Mixed uses the checked colours.
+* 2026-11-25: B3 promoted from review: the transition confirms the change where the person acted.
 * 2026-11-25: Off-scale concept values snap to the nearest scale step rather than adding
   primitives.
 
