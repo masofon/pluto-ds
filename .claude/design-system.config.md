@@ -17,8 +17,8 @@ column; leave the Key column alone**, because the skills look values up by key.
 
 | Key | Value | Notes |
 |---|---|---|
-| `name` | | The design system's name, used in prose: "the {name} library" |
-| `org` | | The organisation that owns it |
+| `name` | Pluto | The design system's name, used in prose: "the {name} library" |
+| `org` | masofon | The organisation that owns it |
 | `skill_prefix` | ds | Skills are named `{prefix}-crd-write` etc. |
 | `support_channel` | [Issues on the starter repo](https://github.com/nobody-wants-this/CRD-DS-workflow-starter/issues) | Where questions the sources can't answer go: a Slack or Teams channel, with link |
 
@@ -38,8 +38,8 @@ group, never an email.
 | Key | Value | Notes |
 |---|---|---|
 | `host` | GitHub | GitHub, GitLab, Azure Repos, Bitbucket |
-| `slug` | | e.g. `acme/design-system` |
-| `url` | | |
+| `slug` | `masofon/pluto-ds` | e.g. `acme/design-system` |
+| `url` | https://github.com/masofon/pluto-ds | |
 | `default_branch` | main | e.g. `main` |
 | `integration_branch` | main | The branch PRs merge into. Same as `default_branch` if there's no separate one |
 | `direct_push` | Yes | Yes / No. No = every change, docs included, goes via branch and PR |
@@ -182,8 +182,8 @@ person, then apply. They never auto-apply and never invent one.
 
 | Key | Value | Notes |
 |---|---|---|
-| `org` | | A seat that can edit here is needed to write |
-| `component_library` | | File name and key |
+| `org` | Constellations | A seat that can edit here is needed to write |
+| `component_library` | CRD DS workflow starter (`CgJ63UUJUYDdl3JpJzLr6H`). The shared original, used directly by choice, not a duplicate | File name and key |
 | `token_files` | See `design_foundations` § Files | Tiers, keys and modes live with the design facts |
 | `consumers_see_published_only` | Yes | Every token or library change needs `publisher` before anything downstream sees it |
 
@@ -192,7 +192,7 @@ person, then apply. They never auto-apply and never invent one.
 | Key | Value | Notes |
 |---|---|---|
 | `page_layout` | kit | `kit` \| `team`. `team` = the conventions below describe the team's own layout, recorded at setup; `reference_page` is the source of truth |
-| `reference_page` | | The page whose layout every new component page copies. Under `kit`, the most recent page carrying the ready-for-dev symbol |
+| `reference_page` | — | The page whose layout every new component page copies. Under `kit`, the most recent page carrying the ready-for-dev symbol |
 | `set_name` | `{category}/{name}` | Lowercase kebab-case |
 | `wip_set_name` | `{category}/wip/.{name}` | A leading dot keeps it out of library publishing |
 | `page_name` | `❖  {Name} - {symbols}` | |

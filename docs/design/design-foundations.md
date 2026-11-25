@@ -126,6 +126,15 @@ Each rule, and the question it raises for every new component.
 - **Icon and label rows centre on the cross axis.**
 - **Interactive targets are at least 24×24** (`docs/design/accessibility.md`).
 
+## About the designer
+
+| | |
+|---|---|
+| Role | Systems designer, experienced with design systems. Skip the basics; go straight to decisions |
+| Platforms | Web |
+| First component | Checkbox |
+| Challenge style | Direct and brisk: short recommendations, plain push back. Still ask for reasons |
+
 ---
 
 # Part 2 · Working in Figma
