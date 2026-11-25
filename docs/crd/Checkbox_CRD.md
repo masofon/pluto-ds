@@ -1,7 +1,7 @@
 ---
 id: checkbox
 name: Checkbox
-version: 0.1.0
+version: 0.1.1
 format: 2
 lifecycle: backlog
 tier: core
@@ -77,6 +77,7 @@ something before submitting ("I agree to the terms"), or select rows in tables a
 * S5: Focus: the checkbox has keyboard focus.
 * S6: Disabled (F10).
 * S7: Error: the box shows an error treatment. Only a parent Field or Checkbox group sets it.
+* S8: Error and disabled never combine.
 
 ## Behaviour
 
@@ -120,8 +121,6 @@ something before submitting ("I agree to the terms"), or select rows in tables a
 
 | Question | Owner | By | Status |
 |---|---|---|---|
-| Can error and disabled combine, or does disabled hide the error state? | Cassie | Before design starts | Open |
-| If the label's link is a Pluto Link component, does Checkbox become composite? | Cassie | Before Link is specced | Open |
 
 ## Notes
 
@@ -145,6 +144,9 @@ The rule that Field and Checkbox group set S7's error state belongs in their CRD
 * 2026-11-25: Mixed becomes checked on activation (F3), matching the native element.
 * 2026-11-25: The box shows an error state (S7), so a lone confirmation shows the problem where
   the person acts. The Field's message is the second cue.
+* 2026-11-25: S8: a disabled checkbox can't be fixed, so an error on it only frustrates.
+* 2026-11-25: Checkbox stays `composition: basic` even if a Link sits in the label (F9): the
+  link is consumer content, which Checkbox doesn't render or own.
 
 ---
 
