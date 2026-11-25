@@ -1,15 +1,15 @@
 ---
 id: checkbox
 name: Checkbox
-version: 0.1.2
+version: 0.1.3
 format: 2
-lifecycle: backlog
+lifecycle: active
 tier: core
 composition: basic
 category: forms
 status:
   requirements: in_progress
-  design_specs: not_started
+  design_specs: in_progress
   implementation: not_started
   docs_guidance: in_progress
 figma:
@@ -76,7 +76,7 @@ something before submitting ("I agree to the terms"), or select rows in tables a
 * S4: Pressed: the pointer is held down on the box, the label or between them.
 * S5: Focus: the checkbox has keyboard focus.
 * S6: Disabled (F10).
-* S7: Error: the box shows an error treatment.
+* S7: Error: the box shows an error treatment, alongside any other state except disabled (S8).
 * S8: Error and disabled never combine.
 
 ## Behaviour
@@ -114,6 +114,8 @@ something before submitting ("I agree to the terms"), or select rows in tables a
 - Description, error message and required marker as Checkbox parts: Field owns them, so
   Checkbox stays a single control.
 - A box-only click target: B2 handles links in the label instead.
+- Error as one of the states: an error box couldn't also show hover, pressed or focus.
+- Error colour on the label: too loud beside the Field's message.
 
 ## Open questions
 
@@ -132,6 +134,11 @@ The rule that Field and Checkbox group set S7's error state belongs in their CRD
 
 | Property | Type | Default | Options | Description |
 |---|---|---|---|---|
+| value | Variant | unchecked | unchecked, checked, mixed | |
+| state | Variant | default | default, hover, pressed, focus, disabled | Only disabled is a code prop; the rest are interaction states |
+| error | Variant | false | false, true | No error with disabled (S8) |
+| Show label | Boolean | true | | |
+| Label | Text | Checkbox label | | |
 
 ## Design decisions
 
@@ -144,6 +151,13 @@ The rule that Field and Checkbox group set S7's error state belongs in their CRD
 * 2026-11-25: S8: a disabled checkbox can't be fixed, so an error on it only frustrates.
 * 2026-11-25: Checkbox stays `composition: basic` even if a Link sits in the label (F9): the
   link is consumer content, which Checkbox doesn't render or own.
+* 2026-11-25: Error is its own property (S7): it mirrors a separate error prop in code.
+* 2026-11-25: Error binds the Semantic error border directly: an existing token does the job
+  (token conventions § Which tier, step 1).
+* 2026-11-25: The box border uses the thinner border width: closer to the concept.
+* 2026-11-25: Mixed uses the checked colours.
+* 2026-11-25: Off-scale concept values snap to the nearest scale step rather than adding
+  primitives.
 
 ---
 
