@@ -1,7 +1,7 @@
 ---
 id: checkbox
 name: Checkbox
-version: 0.1.1
+version: 0.1.2
 format: 2
 lifecycle: backlog
 tier: core
@@ -53,36 +53,36 @@ something before submitting ("I agree to the terms"), or select rows in tables a
 - **Indicator**: the mark inside the box: a tick when checked, a dash when mixed, nothing when
   unchecked
 - **Label**: the text after the box. Optional
+- **Link**: consumer content inside the label. Optional
 
 ## Functional requirements
 
 * F1: A checkbox holds one of three values: unchecked, checked or mixed.
-* F2: Activating an unchecked checkbox makes it checked; activating a checked one makes it
-  unchecked.
-* F3: Activating a mixed checkbox makes it checked.
-* F4: Only the consumer sets mixed. Activation never produces it.
-* F5: A checkbox without a label requires an accessible name from the consumer.
+* F2: Activating an unchecked checkbox makes it checked.
+* F3: Activating a checked checkbox makes it unchecked.
+* F4: Activating a mixed checkbox makes it checked.
+* F5: Only the consumer sets mixed. Activation never produces it.
 * F6: The label sits after the box.
 * F7: A long label wraps. It never truncates.
 * F8: When the label wraps, the box aligns with its first line.
 * F9: The label may contain a link.
-* F10: A disabled checkbox's value can't be changed.
+* F10: The person can't change a disabled checkbox's value.
 
 ## States
 
 * S1: Every state exists for each value: unchecked, checked and mixed.
 * S2: Default: at rest.
-* S3: Hover: the pointer is over the box or the label.
-* S4: Pressed: the pointer is held down on the box or the label.
+* S3: Hover: the pointer is over the box, the label or between them.
+* S4: Pressed: the pointer is held down on the box, the label or between them.
 * S5: Focus: the checkbox has keyboard focus.
 * S6: Disabled (F10).
-* S7: Error: the box shows an error treatment. Only a parent Field or Checkbox group sets it.
+* S7: Error: the box shows an error treatment.
 * S8: Error and disabled never combine.
 
 ## Behaviour
 
-* B1: Clicking the box, the label or the gap between them toggles the value.
-* B2: Clicking a link in the label follows the link and leaves the value unchanged.
+* B1: Clicking the box, the label or between them toggles the value.
+* B2: Clicking the link follows it and leaves the value unchanged.
 * B3: [review] On a value change, the box fill and the indicator transition in on check and out
   on uncheck.
 * B4: Under reduced motion, a value change jumps straight to the end state.
@@ -91,16 +91,14 @@ something before submitting ("I agree to the terms"), or select rows in tables a
 
 ## Accessibility
 
-* A1: The mixed value sets the input's `indeterminate` property, so it is announced as mixed.
+* A1: The mixed value sets the box's `indeterminate` property, so it is announced as mixed.
 * A2: The indicator is decorative and hidden from assistive technology.
-* A3: A link in the label is its own Tab stop, after the checkbox.
-* A4: Focus stays on the checkbox after its value changes.
 
 ## Integration
 
 **Composition rules:**
 
-**Children:** none. The indicator uses the check and minus icons.
+**Children:** none. The indicator's tick is the check icon; its dash is the minus icon.
 
 **Used in:** Checkbox group, Field, tables and lists
 
@@ -139,9 +137,8 @@ The rule that Field and Checkbox group set S7's error state belongs in their CRD
 
 * 2026-11-25: Colours come from a Component-tier set shared with Radio and Switch: controls
   carry too many states for Semantic (token conventions § Which tier, step 2).
-* 2026-11-25: The label is optional (F5), so row selection uses Checkbox rather than a separate
-  control.
-* 2026-11-25: Mixed becomes checked on activation (F3), matching the native element.
+* 2026-11-25: The label is optional (Anatomy), so row selection uses Checkbox rather than a
+  separate control.
 * 2026-11-25: The box shows an error state (S7), so a lone confirmation shows the problem where
   the person acts. The Field's message is the second cue.
 * 2026-11-25: S8: a disabled checkbox can't be fixed, so an error on it only frustrates.
@@ -176,7 +173,7 @@ The rule that Field and Checkbox group set S7's error state belongs in their CRD
 **Patterns:**
 
 - "Select all": a parent checkbox shows mixed while some, but not all, of its children are
-  checked.
+  checked (F5).
 
 **Content:**
 
@@ -184,5 +181,8 @@ The rule that Field and Checkbox group set S7's error state belongs in their CRD
   not "Select".
 
 ## Gotchas
+
+- When you set mixed, also clear the underlying checked value. Otherwise the native element
+  activates mixed to unchecked, not checked (F4).
 
 ---
